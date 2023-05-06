@@ -1,0 +1,73 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Iniciar Sesion</ion-title>
+    
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <form (ngSubmit)="getPrediction()" #predictionForm="ngForm">
+          <ion-item>
+            <ion-label>Nacionalidad</ion-label>
+            <ion-input [(ngModel)]="nacionalidad" name="nacionalidad" required></ion-input>
+          </ion-item>
+          
+          <ion-item>
+            <ion-label>Mes</ion-label>
+            <ion-select [(ngModel)]="mes" name="mes" required>
+              <ion-select-option value="1">Enero</ion-select-option>
+              <ion-select-option value="2">Febrero</ion-select-option>
+              <ion-select-option value="3">Marzo</ion-select-option>
+              <ion-select-option value="4">Abril</ion-select-option>
+              <ion-select-option value="5">Mayo</ion-select-option>
+              <ion-select-option value="6">Junio</ion-select-option>
+              <ion-select-option value="7">Julio</ion-select-option>
+              <ion-select-option value="8">Agosto</ion-select-option>
+              <ion-select-option value="9">Septiembre</ion-select-option>
+              <ion-select-option value="10">Octubre</ion-select-option>
+              <ion-select-option value="11">Noviembre</ion-select-option>
+              <ion-select-option value="12">Diciembre</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item>
+            <ion-label>Año</ion-label>
+            <ion-input [(ngModel)]="anio" name="anio" type="number" required></ion-input>
+          </ion-item>
+          <ion-button expand="block" type="submit" [disabled]="!predictionForm.valid">Obtener predicción</ion-button>
+          
+
+        </form>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="predictionResult">
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Predicción</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <table>
+              <thead>
+                <tr>
+                  <th>Nacionalidad</th>
+                  <th>Tiempo</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>{{ predictionResult.nacionalidad }}</td>
+                  <td>{{ predictionResult.tiempo }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

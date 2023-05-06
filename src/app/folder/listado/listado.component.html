@@ -1,0 +1,59 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Listado de Usuarios</ion-title>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      
+      <ion-title class="custom-title">EDAD MEDIA POR NACIONALIDAD</ion-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col class="titulo"><strong>Nacionalidad</strong></ion-col>
+          <ion-col class="titulo"><strong>Edad media</strong></ion-col>
+        </ion-row>
+        <ion-row *ngFor="let nacionalidad of getNacionalidadesKeys()">
+          <ion-col>{{ nacionalidad }}</ion-col>
+          <ion-col>{{ edadesMediasPorNacionalidad[nacionalidad] }}</ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card-content>
+    <ion-grid>
+      <ion-row>
+        <ion-col class="titulo"><strong>Nombres</strong></ion-col>
+        <ion-col class="titulo"><strong>Nacionalidad</strong></ion-col>
+        <ion-col class="titulo"><strong>Editar</strong></ion-col>
+        <ion-col class="titulo"><strong>Eliminar</strong></ion-col>
+      </ion-row>
+  
+      <ion-row *ngFor="let comcliente of Exaclientes">
+        <ion-col class="titulo1">{{comcliente.nombres}}</ion-col>
+        <ion-col class="titulo1">{{comcliente.nacionalidad}}</ion-col>
+        <ion-col>
+          <ion-buttons>
+            <ion-button>
+              <ion-icon slot="icon-only" name="create-sharp"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-col>
+        <ion-col>
+          <ion-buttons>
+            <ion-button (click)="deletecliente(comcliente)">
+              <ion-icon slot="icon-only" color="danger" name="trash-bin"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card-content>

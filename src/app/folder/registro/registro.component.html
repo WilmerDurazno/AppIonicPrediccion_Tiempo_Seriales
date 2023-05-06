@@ -1,0 +1,78 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Iniciar Sesion</ion-title>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-img src ="../../../assets/imagenes/img1.jpg" class="my-image"></ion-img>
+    <ion-card-header>
+      <ion-card-title>Registro de Usuarios</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      Empieza a disfrutar de nuestros servicios hoy mismo
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-list>
+      <ion-list>
+        <ion-item>
+          <ion-label>Nombres</ion-label>
+          <ion-input [(ngModel)]="newcliente.nombres" placeholder="Ingrese sus Datos"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Apellidos</ion-label>
+          <ion-input [(ngModel)]="newcliente.apellidos" placeholder="Ingrese sus Datos"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Edad</ion-label>
+          <ion-input [(ngModel)]="newcliente.edad" placeholder="Ingrese sus Datos"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Genero</ion-label>
+          <ion-select [(ngModel)]="newcliente.genero">
+            <ion-select-option value="hombre">Hombre</ion-select-option>
+            <ion-select-option value="mujer">Mujer</ion-select-option>
+            <ion-select-option value="otro">Otro</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label>Nivel de Educación</ion-label>
+          <ion-select  [(ngModel)]="newcliente.educacion">
+            <ion-select-option value="Primaria">Primaria</ion-select-option>
+            <ion-select-option value="Secundaria">Secundaria</ion-select-option>
+            <ion-select-option value="Universidad">Universidad</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label>Nacionalidad</ion-label>
+          <ion-input [(ngModel)]="newcliente.nacionalidad" placeholder="Ingrese Datos"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Telefono</ion-label>
+          <ion-input [(ngModel)]="newcliente.telefono" type="tel" placeholder="098-765-4321"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Email</ion-label>
+          <ion-input [(ngModel)]="newcliente.email" type="email" placeholder="email@domain.com"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Password</ion-label>
+          <ion-input [(ngModel)]="newcliente.password" label="Password input" type="password" value="password"></ion-input>
+        </ion-item>
+      
+        <ion-button (click)="guardarcli()" slot="start" >Agregar</ion-button>
+      
+        
+      </ion-list>
+    </ion-list>
+  </ion-card>
+  
+</ion-content>
